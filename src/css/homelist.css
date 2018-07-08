@@ -1,0 +1,20 @@
+.home-contanier{}
+.home-contanier  header{
+   padding: 6px 0;
+}
+.home-contanier  .headpic{
+    height: 60px;
+    /*width: 50px;*/
+    border-radius: 4px;
+}
+.home-contanier  .userName{
+    line-height: 2em;
+    padding-left: 4%;
+}
+.home-contanier  .ewm-lit{
+ display: inline-block;
+    width: 18px;
+}
+.op-lit{
+    opacity:0.4;
+}

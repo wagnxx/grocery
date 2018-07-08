@@ -1,0 +1,23 @@
+#tab-bar.demo {
+    display: flex;
+    flex-direction: column;
+}
+#tab-bar .demoName {
+    height: 40px;
+}
+#tab-bar .demo-preview-item .am-tab-bar {
+    background-color: white;
+    flex-grow: 1;
+}
+.footer-container{
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+
+    margin: 0 auto;
+    border: 1px solid #f0f0f0;
+    box-sizing: border-box;
+    z-index: 9999;
+}
