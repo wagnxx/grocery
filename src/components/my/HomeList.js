@@ -33,6 +33,7 @@ const ListItem = ({thumb,tit,wsps}) => {
                       arrow="horizontal"
                       onClick={() => {
                           // showToast()
+                          window.location.hash="#/my/setting"
                       }}
                 >
                     {tit}</Item>

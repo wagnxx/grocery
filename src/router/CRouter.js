@@ -9,6 +9,7 @@ import KoubeiCustom from "../components/koubei/KoubeiCustom"
 import FriendCustom from "../components/friend/FriendCustom"
 import BasicInputExampleWrapper from "../components/my/FormDateCustom"
 import HomeList from "../components/my/HomeList"
+import Setting from "../components/my/Setting"
 
 const CRouter = ()=>{
     return(
@@ -21,6 +22,7 @@ const CRouter = ()=>{
                 <Route path={"my"}>
                     <Route path={"login"} component={BasicInputExampleWrapper}/>
                     <Route path={"homelist"} component={HomeList}/>
+                    <Route path={"setting"} component={Setting}/>
                 </Route>
 
 
