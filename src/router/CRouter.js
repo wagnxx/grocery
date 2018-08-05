@@ -11,6 +11,8 @@ import BasicInputExampleWrapper from "../components/my/FormDateCustom"
 import HomeList from "../components/my/HomeList"
 import Setting from "../components/my/Setting"
 
+import WalletIndex from "../pages/wallet/WalletIndex"
+
 const CRouter = ()=>{
     return(
         <Router history={hashHistory}>
@@ -23,6 +25,7 @@ const CRouter = ()=>{
                     <Route path={"login"} component={BasicInputExampleWrapper}/>
                     <Route path={"homelist"} component={HomeList}/>
                     <Route path={"setting"} component={Setting}/>
+                    <Route path={"wallet"} component={WalletIndex}/>
                 </Route>
 
 

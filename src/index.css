@@ -5,7 +5,9 @@
 @import "css/elm.css";
 @import "css/homelist.css";
 
-@import "//at.alicdn.com/t/font_738214_85oiyy31xzs.css";
+@import "css/wallet.css";
+
+@import "//at.alicdn.com/t/font_738214_ubrqakafek.css";
 body {
   margin: 0;
   padding: 0;
