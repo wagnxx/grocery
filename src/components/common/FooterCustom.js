@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { TabBar } from 'antd-mobile';
-import {  Link,hashHistory } from 'react-router'
+
 export default class FooterCustom extends React.Component {
     constructor(props) {
         super(props);
@@ -18,8 +18,11 @@ export default class FooterCustom extends React.Component {
             selectedTab: tabname,
         });
         window.location.hash="/"+tabname
-        console.log(this.state.selectedTab)
-        hashHistory.listenBefore(l=>console.log(l))
+        // return false
+        if(tabname==='koubei'){
+            window.location.reload()
+        }
+        // hashHistory.listenBefore(l=>console.log(l))
     }
 
 

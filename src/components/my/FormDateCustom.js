@@ -2,7 +2,6 @@
  * Created by 19848 on 2018/7/8.
  */
 import React from 'react';
-import {Link} from "react-router"
 import { List, InputItem, WhiteSpace ,Button} from 'antd-mobile';
 import { createForm } from 'rc-form';
 
@@ -37,7 +36,7 @@ import { createForm } from 'rc-form';
         }
     }
     render() {
-        const { getFieldProps } = this.props.form;
+        // const { getFieldProps } = this.props.form;
         return (
             <div>
 

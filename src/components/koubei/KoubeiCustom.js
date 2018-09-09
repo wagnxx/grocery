@@ -6,7 +6,11 @@ import ListViewTest from  "./ListViewTest"
 
 export default class KoubeiCustom extends React.Component {
     render() {
-        return (<ListViewTest/>
+        return (
+            <div>
+
+            <ListViewTest/>
+            </div>
         );
     }
 }

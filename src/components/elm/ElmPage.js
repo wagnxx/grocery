@@ -2,7 +2,7 @@
  * Created by 19848 on 2018/7/7.
  */
 import React from 'react';
-import {NavBar, Icon} from 'antd-mobile';
+// import {NavBar, Icon} from 'antd-mobile';
 
 export default class ElmPage extends React.Component {
     render() {
@@ -11,7 +11,7 @@ export default class ElmPage extends React.Component {
                 <ul>
                     <li className="pro">
                         <div className="pro-img">
-                            <img
+                            <img alt={'imgalt'}
                             src="https://fuss10.elemecdn.com/9/0c/948c1f6578c4bb879e7ebf718de63jpeg.jpeg"/>
                         </div>
                         <div className="pro-item">
@@ -32,7 +32,7 @@ export default class ElmPage extends React.Component {
                     </li>
                     <li className="pro"  >
                         <div className="pro-img" >
-                            <img
+                            <img alt={'imgalt'}
                                 src="https://fuss10.elemecdn.com/9/0c/948c1f6578c4bb879e7ebf718de63jpeg.jpeg"/>
                         </div>
                         <div className="pro-item">

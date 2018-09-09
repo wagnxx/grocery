@@ -2,7 +2,7 @@
  * Created by 19848 on 2018/7/7.
  */
 import React from 'react';
-import { SearchBar, Button, WhiteSpace, WingBlank } from 'antd-mobile';
+import { SearchBar } from 'antd-mobile';
 import NavBarCustom from "./NavBarCustom"
 export default class HeaderCustom extends React.Component {
     state = {

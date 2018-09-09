@@ -2,7 +2,7 @@
  * Created by 19848 on 2018/7/8.
  */
 import React from 'react';
-import { Flex, WingBlank, List, Icon, WhiteSpace, Switch } from "antd-mobile"
+import { List, Switch } from "antd-mobile"
 import { createForm } from 'rc-form';
 const { Item } = List;
 const Base_url = "https://wagnxx.net.cn/react/images/img_wx/"
@@ -25,42 +25,43 @@ var _data = data.items.map((ite, ind) => {
 })
 
 
-const ListItem = ({ thumb, tit, wsps }) => {
-
-    class Exp extends React.Component{
-        render(){
-                    const { getFieldProps, getFieldError } = this.props.form;
-            return (
-                <div>
-
-                    <List>
-                        <Item
-                            extra={<Switch  />}
-                            arrow="horizontal"
-                            onClick={() => {
-                                // showToast()
-                                window.location.hash = "#/my/setting"
-                            }}
-                        >
-                            {tit}</Item>
-                    </List>
-                    {!!wsps && <WhiteSpace size={"lg"} />}
-
-                </div>
-            );            
-        }
-    }
-
-    return Exp;
-
-
-};
- 
+// const ListItem = ({ thumb, tit, wsps }) => {
+//
+//     class Exp extends React.Component{
+//         render(){
+//                     const { getFieldProps, getFieldError } = this.props.form;
+//             return (
+//                 <div>
+//
+//                     <List>
+//                         <Item
+//                             extra={<Switch  />}
+//                             arrow="horizontal"
+//                             onClick={() => {
+//                                 // showToast()
+//                                 window.location.hash = "#/my/setting"
+//                             }}
+//                         >
+//                             {tit}</Item>
+//                     </List>
+//                     {!!wsps && <WhiteSpace size={"lg"} />}
+//
+//                 </div>
+//             );
+//         }
+//     }
+//
+//     return Exp;
+//
+//
+// };
+//
 
 
 class BasicInput extends React.Component {
     render() {
-        const { getFieldProps, getFieldError } = this.props.form;
+        const { getFieldProps } = this.props.form;
+        // const { getFieldProps, getFieldError } = this.props.form;
         return (
             <div className={"home-contanier"}>
                
@@ -71,7 +72,7 @@ class BasicInput extends React.Component {
             {
                 _data.map((ite,ind)=>{
                     return (
-                        <List>
+                        <List key={`list-${ind}`}>
                     <Item
                         thumb={ite.thumb}
                         extra={<Switch {...getFieldProps(`${ind}`, { initialValue: true, valuePropName: 'checked' })} />}

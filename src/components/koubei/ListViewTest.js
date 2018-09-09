@@ -8,8 +8,7 @@ import { ListView } from 'antd-mobile';
 function MyBody(props) {
     return (
         <div className="am-list-body my-body">
-            <span style={{ display: 'none' }}>you can custom body wrap element</span>
-            {props.children}
+            {props.children||""}
         </div>
     );
 }
@@ -62,6 +61,8 @@ export  default class ListViewTest extends React.Component {
         const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
         const getRowData = (dataBlob, sectionID, rowID) => dataBlob[rowID];
 
+
+
         const dataSource = new ListView.DataSource({
             getRowData,
             getSectionHeaderData: getSectionData,
@@ -80,10 +81,13 @@ export  default class ListViewTest extends React.Component {
         // you can scroll to the specified position
         // setTimeout(() => this.lv.scrollTo(0, 120), 800);
 
+
+
         const hei = document.documentElement.clientHeight - ReactDOM.findDOMNode(this.lv).parentNode.offsetTop;
         // simulate initial Ajax
         setTimeout(() => {
             genData();
+
             this.setState({
                 dataSource: this.state.dataSource.cloneWithRowsAndSections(dataBlobs, sectionIDs, rowIDs),
                 isLoading: false,
@@ -136,6 +140,7 @@ export  default class ListViewTest extends React.Component {
                 index = data.length - 1;
             }
             const obj = data[index--];
+            const rand=Math.ceil(Math.random()*10);
             return (
                 <div key={rowID} style={{ padding: '0 15px' }}>
                     <div
@@ -146,11 +151,11 @@ export  default class ListViewTest extends React.Component {
                             borderBottom: '1px solid #F6F6F6',
                         }}
                     >{obj.title}</div>
-                    <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
+                    <div style={{   'display': 'flex', padding: '15px 0' }}>
                         <img style={{ height: '64px', marginRight: '15px' }} src={obj.img} alt="" />
                         <div style={{ lineHeight: 1 }}>
-                            <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.title}</div>
-                            <div><span style={{ fontSize: '30px', color: '#FF6E27' }}>35</span>¥ {rowID}</div>
+                            <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.des}</div>
+                            <div><span style={{ fontSize: '30px', color: '#FF6E27' }}>{35+rand}</span>¥ {rowID}</div>
                         </div>
                     </div>
                 </div>
@@ -159,14 +164,15 @@ export  default class ListViewTest extends React.Component {
 
         return (
             <ListView
-                ref={el => this.lv = el}
+                // ref={el => this.lv = el}
+                ref={el => { this.lv = el; return this.lv }}
                 dataSource={this.state.dataSource}
-                // renderHeader={() => <span>header</span>}
+                renderHeader={() => <span>header</span>}
                 renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
                     {this.state.isLoading ? 'Loading...' : 'Loaded'}
                 </div>)}
                 renderSectionHeader={sectionData => (
-                    <div>{`Task ${sectionData.split(' ')[1]}`}</div>
+                    <div>{`第 ${sectionData.split(' ')[1]-0+1} 组套餐`}</div>
                 )}
                 renderBodyComponent={() => <MyBody />}
                 renderRow={row}

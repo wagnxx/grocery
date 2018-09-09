@@ -58,7 +58,7 @@ export default class HomeList extends React.Component {
                         justify="between"
                     >
 
-                        <img className={"headpic"}
+                        <img alt={"imgalt"} className={"headpic"}
                              src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531062134114&di=0dcee1ab81ee27249cbd5a0ed126d20c&imgtype=0&src=http%3A%2F%2Fimg.duoziwang.com%2F2016%2F11%2F19%2F1352095613.jpg"/>
 
 
@@ -69,7 +69,7 @@ export default class HomeList extends React.Component {
                              <div className={"userName"}>用户名<br/>
                                 storeID: 13254251525</div>
                             <div className={"op-lit"}>
-                                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531064073043&di=415c8c49af35f9b189535bdf513190d4&imgtype=0&src=http%3A%2F%2F2414844.s21i-2.faiusr.com%2F3%2FABUIABADGAAgttnimAUo5tW5jwcwyAE4yAE.gif" className={"ewm-lit"}/>
+                                <img alt={"imgalt"} src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531064073043&di=415c8c49af35f9b189535bdf513190d4&imgtype=0&src=http%3A%2F%2F2414844.s21i-2.faiusr.com%2F3%2FABUIABADGAAgttnimAUo5tW5jwcwyAE4yAE.gif" className={"ewm-lit"}/>
                                 <Icon type={"right"}></Icon>
                             </div>
                         </Flex>

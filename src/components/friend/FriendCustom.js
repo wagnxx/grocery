@@ -1,8 +1,7 @@
 import React from "react"
-import {List, Icon, WhiteSpace, Toast} from 'antd-mobile';
+import {List, WhiteSpace, Toast} from 'antd-mobile';
 
 const Item = List.Item;
-const Brief = Item.Brief;
 
 const Base_url = "https://wagnxx.net.cn/react/images/img_wx/"
 
@@ -31,7 +30,7 @@ function showToast() {
 
 const ListItem = ({thumb,tit,wsps}) => {
     return (
-        <div>
+        <div key={thumb}>
 
             <List>
                 <Item thumb={thumb}
@@ -50,7 +49,7 @@ const ListItem = ({thumb,tit,wsps}) => {
 
 export default class FriendCustom extends React.Component {
     render() {
-        console.log(_data)
+
         return (
             <div className={"friend-container"}>
                 {_data.map((ind,ite)=>{

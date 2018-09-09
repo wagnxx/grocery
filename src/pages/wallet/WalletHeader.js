@@ -2,9 +2,9 @@
  * Created by 19848 on 2018/8/5.
  */
 import React from 'react';
-import { Flex, WhiteSpace } from 'antd-mobile';
+import { Flex } from 'antd-mobile';
 
-const PlaceHolder=()=><span>header..</span>
+// const PlaceHolder=()=><span>header..</span>
 
 export default class WalletHeader extends React.Component {
     render() {

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router'
 import HeaderCustom from "./components/common/HeaderCustom"
 import FooterCustom from "./components/common/FooterCustom"
 
