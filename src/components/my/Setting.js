@@ -75,7 +75,9 @@ class BasicInput extends React.Component {
                         <List key={`list-${ind}`}>
                     <Item
                         thumb={ite.thumb}
-                        extra={<Switch {...getFieldProps(`${ind}`, { initialValue: true, valuePropName: 'checked' })} />}
+                        extra={<Switch
+                            onClick={()=>console.log(this)}
+                            color="#108ee9" {...getFieldProps(`${ind}`, { initialValue: true, valuePropName: 'checked' })} />}
                             >{ite.tit}</Item>
                   
                 </List>

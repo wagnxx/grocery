@@ -15,7 +15,7 @@ body{
     font-size: 26px !important;
     color: #108ee9;
 }
-
+/*img{width: 100%}*/
 @media (min-width: 640px) {
   .App-child{
   padding:0 1%;

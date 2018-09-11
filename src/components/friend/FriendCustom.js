@@ -24,7 +24,7 @@ var _data = data.items.map((ite,ind)=>{
     return ite
 })
 function showToast() {
-    Toast.info('该模块还未开发，请后续查看', 1);
+    Toast.info('该模块需要登陆才能查看，想继续查看请点击my 项登陆', 2);
 }
 
 

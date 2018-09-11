@@ -26,7 +26,7 @@ var _data = data.items.map((ite,ind)=>{
 
 const ListItem = ({thumb,tit,wsps}) => {
     return (
-        <div>
+        <div key={thumb}>
 
             <List>
                 <Item thumb={thumb}

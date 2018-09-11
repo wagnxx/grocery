@@ -4,7 +4,7 @@
 import React from 'react';
 import  ReactDOM from "react-dom"
 import { ListView } from 'antd-mobile';
-
+import {withRouter} from "react-router";
 function MyBody(props) {
     return (
         <div className="am-list-body my-body">
@@ -55,7 +55,7 @@ function genData(pIndex = 0) {
     rowIDs = [...rowIDs];
 }
 
-export  default class ListViewTest extends React.Component {
+ class ListViewTest extends React.Component {
     constructor(props) {
         super(props);
         const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
@@ -152,7 +152,7 @@ export  default class ListViewTest extends React.Component {
                         }}
                     >{obj.title}</div>
                     <div style={{   'display': 'flex', padding: '15px 0' }}>
-                        <img style={{ height: '64px', marginRight: '15px' }} src={obj.img} alt="" />
+                        <img style={{ height: '64px ', marginRight: '15px' }} src={obj.img} alt="" />
                         <div style={{ lineHeight: 1 }}>
                             <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.des}</div>
                             <div><span style={{ fontSize: '30px', color: '#FF6E27' }}>{35+rand}</span>¥ {rowID}</div>
@@ -190,3 +190,5 @@ export  default class ListViewTest extends React.Component {
         );
     }
 }
+
+export  default withRouter(ListViewTest)

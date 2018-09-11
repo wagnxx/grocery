@@ -2,26 +2,61 @@
  * Created by 19848 on 2018/7/7.
  */
 import React from 'react';
+import {connect} from "react-redux";
 import { TabBar } from 'antd-mobile';
+import fx1 from "../../loc_source/img/footer_faxian.png";
+import fx2 from "../../loc_source/img/footer_faxianxuanzhong.png";
+import wo1 from "../../loc_source/img/footer_wode.png";
+import wo2 from "../../loc_source/img/footer_wodedangxuan.png";
 
-export default class FooterCustom extends React.Component {
+class FooterCustom extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedTab: 'redTab',
+            selectedTab: 'elm',
             hidden: false,
             fullScreen: false,
         };
     }
-    handlePress=(tabname)=>{
+
+    componentDidMount(){
+
+        // this.setSatateHandle(this.props.tabName)
+        localStorage.getItem("selectedTab")!==null?this.setSatateHandle(localStorage.getItem("selectedTab")) :""
+    }
+
+
+    componentWillReceiveProps (nextProps) {
+        // this.setSatateHandle(this.props.tabName)
+        this.setSatateHandle(nextProps.tabNameRoutes[1])
+        console.log("footerTab:",nextProps.tabNameRoutes[1])
+    }
+
+    setSatateHandle=(v)=>{
         this.setState({
-            selectedTab: tabname,
-        });
+            ...this.state,
+            selectedTab:v,
+
+        })
+    }
+
+    handlePress=(tabname)=>{
+
         window.location.hash="/"+tabname
-        // return false
-        if(tabname==='koubei'){
-            window.location.reload()
+        localStorage.setItem("selectedTab",tabname);
+        if(tabname==="my/login"){
+            tabname="my"
         }
+        // return false
+        // if(tabname==='koubei'){
+        //     window.location.reload()
+        // }
+        setTimeout(() =>{
+            this.setState({
+                selectedTab: tabname,
+            });
+        })
+
         // hashHistory.listenBefore(l=>console.log(l))
     }
 
@@ -38,7 +73,7 @@ export default class FooterCustom extends React.Component {
 
                 >
                     <TabBar.Item
-                        title="饿了么"
+                        title="elm"
                         key="elm"
                         icon={<div
 
@@ -91,20 +126,27 @@ export default class FooterCustom extends React.Component {
                     </TabBar.Item>
                     <TabBar.Item
                         icon={
-                            <div style={{
-                                width: '22px',
-                                height: '22px',
-                                background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat' }}
+                            <img src={fx1} alt="fa1"
+                                 style={
+                                     {
+                                         width:"22px",
+                                         height:"22px"
+                                     }
+                                 }
                             />
                         }
                         selectedIcon={
-                            <div style={{
-                                width: '22px',
-                                height: '22px',
-                                background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat' }}
+
+                            <img src={fx2} alt="fa2"
+                            style={
+                                {
+                                    width:"22px",
+                                    height:"22px"
+                                }
+                            }
                             />
                         }
-                        title="Friend"
+                        title="playfriend"
                         key="Friend"
                         dot
                         selected={this.state.selectedTab === 'friend'}
@@ -114,8 +156,26 @@ export default class FooterCustom extends React.Component {
 
                     </TabBar.Item>
                     <TabBar.Item
-                        icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-                        selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
+                        icon={
+                            <img src={wo1} alt="wo1"
+                                 style={
+                                     {
+                                         width:"22px",
+                                         height:"22px"
+                                     }
+                                 }
+                            />
+                        }
+                        selectedIcon={
+                            <img src={wo2} alt="wo2"
+                                 style={
+                                     {
+                                         width:"22px",
+                                         height:"22px"
+                                     }
+                                 }
+                            />
+                        }
                         title="My"
                         key="my"
                         selected={this.state.selectedTab === 'my'}
@@ -129,3 +189,13 @@ export default class FooterCustom extends React.Component {
 
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        tabName: state.footerSelct.seleTabName,
+        tabNameRoutes: state.routetReducer.routes
+    }
+}
+
+export default connect(mapStateToProps,null)(FooterCustom)
+
+

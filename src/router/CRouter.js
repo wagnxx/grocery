@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route,hashHistory ,IndexRoute} from 'react-router'
+import { Router, Route,hashHistory ,IndexRoute,Redirect} from 'react-router'
 
 import App from '../App';
 // import FlexExample from "../components/Test"
@@ -14,13 +14,16 @@ import WalletIndex from "../pages/wallet/WalletIndex"
 import Result from "../components/result/Result"
 
 const CRouter = ()=>{
+
     return(
         <Router history={hashHistory}>
             <Route path={"/"} component={App}>
-                <IndexRoute path="" component={FriendCustom}/>
+                <IndexRoute path="" component={ElmPage}/>
                 <Route path="elm" component={ElmPage} />
                 <Route path="koubei" component={KoubeiCustom} />
                 <Route path="friend" component={FriendCustom} />
+
+                {/*<Redirect path={"my"} to={"/my/login"}/>*/}
                 <Route path={"my"}>
                     <Route path={"login"} component={BasicInputExampleWrapper}/>
                     <Route path={"homelist"} component={HomeList}/>

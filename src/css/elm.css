@@ -45,7 +45,7 @@
     overflow: hidden;
 }
 .pro-item >div h3{
-    font-size: 16px;
+    font-size: 15px;
     margin: 0;
 }
 .pro-item >div span{
@@ -56,4 +56,29 @@
 #scrollContent>ul{
     margin:0;
     padding:0;
+}
+.elmTop_item{text-align: center;color: #666;width: 20%;padding:1.56% 0;}
+.elmTopImg_cont{width: 12vw;height: 12vw;display: inline-block}
+.elmTopImg_cont>img{width: 100%;height: 100%;}
+
+/*推荐*/
+.elm_recommended{
+    padding: 1% 2%;
+    background: linear-gradient(0deg,#f4f4f4 5%,#fafafa 95%);
+}
+.elm_recommended_l{font-size: 0.9em;line-height: 1.3}
+.elm_recommended_l>h3{margin: 0;color: #333;}
+.elm_recommended_l>span{ color: #777;}
+.elm_recommended_l>a{ color: #af8260;font-weight: 700;}
+.elm_recommended_r{width: 37.6%}
+.elm_recommended_r>img{width: 100%}
+/*推荐*/
+.tabItem{font-size: 15px;}
+.tabItem>*{font-size: 9px;margin-left: 2px;}
+
+
+
+@media (max-width: 410px) {
+    .elmTop_item{font-size: 12px;}
+    .tabItem{font-size: 14px;}
 }
