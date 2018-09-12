@@ -1,20 +1,29 @@
-.home-contanier{}
-.home-contanier  header{
-   padding: 6px 0;
+.home-contanier {
 }
-.home-contanier  .headpic{
+
+.home-contanier header {
+    padding: 6px 0;
+}
+
+.home-contanier .headpic {
     height: 60px;
     /*width: 50px;*/
     border-radius: 4px;
 }
-.home-contanier  .userName{
+
+.home-contanier .userName {
     line-height: 2em;
     padding-left: 4%;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    color: #000;
 }
-.home-contanier  .ewm-lit{
- display: inline-block;
+
+.home-contanier .ewm-lit {
+    display: inline-block;
     width: 18px;
 }
-.op-lit{
-    opacity:0.4;
+
+.op-lit {
+    opacity: 0.4;
 }

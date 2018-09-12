@@ -3,7 +3,6 @@
  */
 import React from 'react';
 
-
 export default class ElmTopItem extends React.Component {
     render() {
         return (

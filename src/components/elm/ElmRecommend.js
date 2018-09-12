@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { Divider } from 'antd';
-import { Flex, WhiteSpace,WingBlank } from 'antd-mobile';
+import {  WhiteSpace,WingBlank } from 'antd-mobile';
 import ElmOrderTab from "./ElmOrderTab"
 
 export default class ElmRecommend extends React.Component {

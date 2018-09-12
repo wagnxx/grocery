@@ -4,9 +4,12 @@ import HeaderCustom from "./components/common/HeaderCustom"
 import FooterCustom from "./components/common/FooterCustom"
 
 class App extends Component {
-    componentWillReceiveProps (nextProps) {
-        let routes = nextProps.routes,len=routes.length,route_arr=[];
-        for(let i=0;i<len;i++){
+    componentWillReceiveProps(nextProps) {
+
+        const loginState = this.props.LOGIN.LOGIN;
+        window.localStorage.setItem("loginState", loginState)
+        let routes = nextProps.routes, len = routes.length, route_arr = [];
+        for (let i = 0; i < len; i++) {
             route_arr.push(routes[i].path)
         }
         this.props.dispatchRouter(route_arr)
@@ -19,7 +22,7 @@ class App extends Component {
                 <HeaderCustom/>
                 <div className={"App-child"}>
 
-                {this.props.children}
+                    {this.props.children}
                 </div>
                 <div className={"footer-container"}>
                     <FooterCustom/>
@@ -30,10 +33,15 @@ class App extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        LOGIN: state.loginReducer
+    }
+};
 
-const mapDispatchToProps=dispatch=>({
-    dispatchRouter:r=>dispatch({type:"ROUTES_CHANGE",routes:r}),
+const mapDispatchToProps = dispatch => ({
+    dispatchRouter: r => dispatch({type: "ROUTES_CHANGE", routes: r}),
 });
 
 
-export default connect(null,mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

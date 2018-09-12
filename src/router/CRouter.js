@@ -9,34 +9,51 @@ import FriendCustom from "../components/friend/FriendCustom"
 import BasicInputExampleWrapper from "../components/my/FormDateCustom"
 import HomeList from "../components/my/HomeList"
 import Setting from "../components/my/Setting"
+import AdminSetting from "../components/my/AdminSetting"
 
 import WalletIndex from "../pages/wallet/WalletIndex"
 import Result from "../components/result/Result"
 
-const CRouter = ()=>{
 
-    return(
-        <Router history={hashHistory}>
-            <Route path={"/"} component={App}>
-                <IndexRoute path="" component={ElmPage}/>
-                <Route path="elm" component={ElmPage} />
-                <Route path="koubei" component={KoubeiCustom} />
-                <Route path="friend" component={FriendCustom} />
+class CRouter extends React.Component{
 
-                {/*<Redirect path={"my"} to={"/my/login"}/>*/}
-                <Route path={"my"}>
-                    <Route path={"login"} component={BasicInputExampleWrapper}/>
-                    <Route path={"homelist"} component={HomeList}/>
-                    <Route path={"setting"} component={Setting}/>
-                    <Route path={"wallet"} component={WalletIndex}/>
+    requireAuthentication=(component)=>{
+        let loginState=window.localStorage.getItem("loginState");
+        if(loginState==="true"){
+           window.location.hash="#/my/homelist";
+           return <HomeList/>;
+        }
+        return component;
+    }
+    render(){
+        return(
+            <Router history={hashHistory}>
+                <Route path={"/"} component={App}>
+                    <IndexRoute path="" component={ElmPage}/>
+                    <Route path="elm" component={ElmPage} />
+                    <Route path="koubei" component={KoubeiCustom} />
+                    <Route path="friend" component={FriendCustom} />
+
+                    {/*<Redirect path={"my"} to={"/my/login"}/>*/}
+                    <Route path={"my"}>
+                        <Route path="login" component={()=>this.requireAuthentication(<BasicInputExampleWrapper/>)}/>
+                        <Route path={"homelist"} component={HomeList}/>
+                        <Route path={"setting"} component={Setting}/>
+                        <Route path={"adminSetting"} component={AdminSetting}/>
+                        <Route path={"wallet"} component={WalletIndex}/>
+                    </Route>
+                    <Route path="result" component={Result} />
+
+
                 </Route>
-                <Route path="result" component={Result} />
 
-
-            </Route>
-
-        </Router>
-    );
+            </Router>
+        );
+    }
 }
 
+
+
+
 export default CRouter;
+

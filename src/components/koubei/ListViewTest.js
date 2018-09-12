@@ -2,13 +2,14 @@
  * Created by 19848 on 2018/7/8.
  */
 import React from 'react';
-import  ReactDOM from "react-dom"
-import { ListView } from 'antd-mobile';
+import ReactDOM from "react-dom"
+import {ListView} from 'antd-mobile';
 import {withRouter} from "react-router";
+
 function MyBody(props) {
     return (
         <div className="am-list-body my-body">
-            {props.children||""}
+            {props.children || ""}
         </div>
     );
 }
@@ -22,12 +23,12 @@ const data = [
     {
         img: 'https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png',
         title: 'McDonald\'s invites you',
-        des: '不是所有的兼职汪都需要风吹日晒',
+        des: '企业卫星给你锁定目标',
     },
     {
         img: 'https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png',
         title: 'Eat the week',
-        des: '不是所有的兼职汪都需要风吹日晒',
+        des: '无人机助您每餐快乐',
     },
 ];
 const NUM_SECTIONS = 5;
@@ -37,6 +38,7 @@ let pageIndex = 0;
 const dataBlobs = {};
 let sectionIDs = [];
 let rowIDs = [];
+
 function genData(pIndex = 0) {
     for (let i = 0; i < NUM_SECTIONS; i++) {
         const ii = (pIndex * NUM_SECTIONS) + i;
@@ -55,12 +57,11 @@ function genData(pIndex = 0) {
     rowIDs = [...rowIDs];
 }
 
- class ListViewTest extends React.Component {
+class ListViewTest extends React.Component {
     constructor(props) {
         super(props);
         const getSectionData = (dataBlob, sectionID) => dataBlob[sectionID];
         const getRowData = (dataBlob, sectionID, rowID) => dataBlob[rowID];
-
 
 
         const dataSource = new ListView.DataSource({
@@ -80,7 +81,6 @@ function genData(pIndex = 0) {
     componentDidMount() {
         // you can scroll to the specified position
         // setTimeout(() => this.lv.scrollTo(0, 120), 800);
-
 
 
         const hei = document.documentElement.clientHeight - ReactDOM.findDOMNode(this.lv).parentNode.offsetTop;
@@ -112,7 +112,7 @@ function genData(pIndex = 0) {
             return;
         }
         console.log('reach end', event);
-        this.setState({ isLoading: true });
+        this.setState({isLoading: true});
         setTimeout(() => {
             genData(++pageIndex);
             this.setState({
@@ -140,9 +140,9 @@ function genData(pIndex = 0) {
                 index = data.length - 1;
             }
             const obj = data[index--];
-            const rand=Math.ceil(Math.random()*10);
+            const rand = Math.ceil(Math.random() * 10);
             return (
-                <div key={rowID} style={{ padding: '0 15px' }}>
+                <div key={rowID} style={{padding: '0 15px'}}>
                     <div
                         style={{
                             lineHeight: '50px',
@@ -151,11 +151,11 @@ function genData(pIndex = 0) {
                             borderBottom: '1px solid #F6F6F6',
                         }}
                     >{obj.title}</div>
-                    <div style={{   'display': 'flex', padding: '15px 0' }}>
-                        <img style={{ height: '64px ', marginRight: '15px' }} src={obj.img} alt="" />
-                        <div style={{ lineHeight: 1 }}>
-                            <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.des}</div>
-                            <div><span style={{ fontSize: '30px', color: '#FF6E27' }}>{35+rand}</span>¥ {rowID}</div>
+                    <div style={{'display': 'flex', padding: '15px 0'}}>
+                        <img style={{height: '64px ', marginRight: '15px'}} src={obj.img} alt=""/>
+                        <div style={{lineHeight: 1}}>
+                            <div style={{marginBottom: '8px', fontWeight: 'bold'}}>{obj.des}</div>
+                            <div><span style={{fontSize: '30px', color: '#FF6E27'}}>{35 + rand}</span>¥ {rowID}</div>
                         </div>
                     </div>
                 </div>
@@ -165,16 +165,19 @@ function genData(pIndex = 0) {
         return (
             <ListView
                 // ref={el => this.lv = el}
-                ref={el => { this.lv = el; return this.lv }}
+                ref={el => {
+                    this.lv = el;
+                    return this.lv
+                }}
                 dataSource={this.state.dataSource}
-                renderHeader={() => <span>header</span>}
-                renderFooter={() => (<div style={{ padding: 30, textAlign: 'center' }}>
+                // renderHeader={() => <span>header</span>}
+                renderFooter={() => (<div style={{padding: 30, textAlign: 'center'}}>
                     {this.state.isLoading ? 'Loading...' : 'Loaded'}
                 </div>)}
                 renderSectionHeader={sectionData => (
-                    <div>{`第 ${sectionData.split(' ')[1]-0+1} 组套餐`}</div>
+                    <div>{`第 ${sectionData.split(' ')[1] - 0 + 1} 组套餐`}</div>
                 )}
-                renderBodyComponent={() => <MyBody />}
+                renderBodyComponent={() => <MyBody/>}
                 renderRow={row}
                 renderSeparator={separator}
                 style={{
@@ -182,7 +185,9 @@ function genData(pIndex = 0) {
                     overflow: 'auto',
                 }}
                 pageSize={4}
-                onScroll={() => { console.log('scroll'); }}
+                onScroll={() => {
+                    console.log('scroll');
+                }}
                 scrollRenderAheadDistance={500}
                 onEndReached={this.onEndReached}
                 onEndReachedThreshold={10}
@@ -191,4 +196,4 @@ function genData(pIndex = 0) {
     }
 }
 
-export  default withRouter(ListViewTest)
+export default withRouter(ListViewTest)
