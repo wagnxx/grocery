@@ -3,42 +3,42 @@
  */
 import React from 'react';
 import {List, Switch} from "antd-mobile"
+import {Spin} from 'antd';
 import {createForm} from 'rc-form';
+import {getImgList,connectData} from "../../axios";
 
 const {Item} = List;
-const Base_url = "https://wagnxx.net.cn/react/images/img_wx/"
-
-const data = {
-    items: [
-        {thumb: "wx_qianbao.png", tit: "钱包", wsps: true},
-        {thumb: "wx_shoucang.png", tit: "收藏", wsps: true},
-        {thumb: "wx_xiangce.png", tit: "相册", wsps: true},
-        {thumb: "wx_kabao.png", tit: "卡包", wsps: true},
-        {thumb: "wx_biaoqing.png", tit: "表情", wsps: true},
-        {thumb: "wx_shezhi.png", tit: "设置", wsps: true},
-
-    ]
-};
-
-let _data = data.items.map((ite, ind) => {
-    ite.thumb = Base_url + ite.thumb;
-    return ite
-});
 
 
 class BasicInput extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            loading: true,
+            _data: []
+        }
+    }
+
+    componentDidMount() {
+        window.localStorage.getItem&&window.localStorage.getItem("imaegs_remote") ?
+            this.setState({_data: JSON.parse(window.localStorage.getItem("imaegs_remote")), loading: false}):
+            getImgList()
+            .then(res=> connectData(res))
+            .then(_data=>{
+                this.setState({_data: _data, loading: false});
+                window.localStorage.setItem("imaegs_remote",JSON.stringify(_data));
+            }) ;
+    }
+
     render() {
         const {getFieldProps} = this.props.form;
         // const { getFieldProps, getFieldError } = this.props.form;
         return (
             <div className={"home-contanier"}>
-
-                {/* {_data.map((ind, ite) => {
-                    return ListItem(ind)
-                })} */}
-
+                <Spin spinning={this.state.loading} delay={10}
+                      style={{position: 'absolute', top: "30%", left: 0, right: 0, margin: "0 auto", width: "30%"}}/>
                 {
-                    _data.map((ite, ind) => {
+                    this.state._data.map((ite, ind) => {
                         return (
                             <List key={`list-${ind}`}>
                                 <Item
@@ -65,5 +65,5 @@ class BasicInput extends React.Component {
     }
 }
 
-export default  createForm()(BasicInput);
+export default createForm()(BasicInput);
 

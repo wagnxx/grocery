@@ -4,7 +4,7 @@
 import React from 'react';
 import {bindActionCreators} from "redux"
 import {connect} from "react-redux"
-import {Flex, WingBlank, List, Icon, WhiteSpace, Toast} from "antd-mobile"
+import { List, WhiteSpace, Toast} from "antd-mobile"
 
 const {Item} = List;
 const Base_url = "https://wagnxx.net.cn/react/images/img_wx/";
@@ -26,7 +26,7 @@ const data = {
     ]
 };
 
-var _data = data.items.map((ite, ind) => {
+let _data = data.items.map((ite, ind) => {
     ite.thumb = Base_url + ite.thumb;
     ite.ind = ind
     return ite

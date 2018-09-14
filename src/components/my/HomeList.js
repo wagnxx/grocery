@@ -7,7 +7,7 @@ import {connect} from "react-redux"
 import {Flex, WingBlank, List, Icon, WhiteSpace} from "antd-mobile"
 
 const {Item} = List;
-const Base_url = "https://wagnxx.net.cn/react/images/img_wx/"
+const Base_url = "https://wagnxx.net.cn/react/images/img_wx/";
 
 const data = {
     items: [
@@ -21,11 +21,10 @@ const data = {
     ]
 };
 
-var _data = data.items.map((ite, ind) => {
+let _data = data.items.map((ite, ind) => {
     ite.thumb = Base_url + ite.thumb;
     return ite
-})
-
+});
 
 const ListItem = ({thumb, tit, wsps}) => {
     return (
@@ -46,7 +45,6 @@ const ListItem = ({thumb, tit, wsps}) => {
         </div>
     );
 };
-
 
 class HomeList extends React.Component {
     constructor() {
@@ -99,6 +97,7 @@ class HomeList extends React.Component {
                     if (ite < 5) {
                         return ListItem(ind)
                     }
+                    return "";
                 })}
                 <List>
                     <Item thumb={_data[5].thumb}

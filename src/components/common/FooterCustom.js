@@ -20,7 +20,10 @@ class FooterCustom extends React.Component {
     }
 
     componentDidMount() {
-        localStorage.getItem("selectedTab") !== null ? this.setSatateHandle(localStorage.getItem("selectedTab")) : ""
+        if( localStorage.getItem("selectedTab") !== null ){
+            this.setSatateHandle(localStorage.getItem("selectedTab"))
+        }
+
     }
 
 

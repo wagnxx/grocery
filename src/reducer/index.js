@@ -9,33 +9,16 @@ const FOOTER_BAR_MY = "FOOTER_BAR_MY";
 const ROUTES_CHANGE = "ROUTES_CHANGE";
 
 
-const reducerTest = (state = 100, action) => {
-    switch (action.type) {
-        case "ADD":
-            return state + 1;
-            break;
-        case "INC":
-            return state - 1
-            break;
-        default :
-            return state;
-    }
-}
-
 const footerSelct = (state = {seleTabName: "elm"}, action) => {
     switch (action.type) {
         case FOOTER_BAR_ELM:
             return {...state, seleTabName: "elm"};
-            break;
         case FOOTER_BAR_KOUBEI:
             return {...state, seleTabName: "koubei"};
-            break;
         case FOOTER_BAR_FRIEND:
             return {...state, seleTabName: "friend"};
-            break;
         case FOOTER_BAR_MY:
             return {...state, seleTabName: "my"};
-            break;
         default:
             return {...state};
     }
@@ -46,7 +29,6 @@ const routetReducer = (state = {routes: ['/', 'elm', ""]}, action) => {
         case ROUTES_CHANGE:
             window.a = action.routes;
             return {...state, routes: action.routes};
-            break;
         default:
             return {...state};
     }
@@ -60,10 +42,8 @@ const loginReducer = (state = {LOGIN: false, USER_NAME: "XXX"}, action) => {
     switch (action.type) {
         case LOGIN_IN:
             return {...state, LOGIN: true, USER_NAME: action.USER_NAME};
-            break;
         case LOGIN_OUT:
             return {...state, LOGIN: false};
-            break;
         default:
             return state;
     }
@@ -71,7 +51,7 @@ const loginReducer = (state = {LOGIN: false, USER_NAME: "XXX"}, action) => {
 }
 
 export default combineReducers({
-    reducerTest,
+
     footerSelct,
     routetReducer,
     loginReducer

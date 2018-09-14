@@ -15,7 +15,6 @@ import ccsx from "../../loc_source/img/elm_chufangshengxian.webp";
 import dfxc from "../../loc_source/img/elm_difangxiaochi.webp";
 import mlt from "../../loc_source/img/elm_malatang.webp";
 
-
 const itemLists = [
     {uri: ms, tit: "美食"},
     {uri: wc, tit: "晚餐"},
@@ -48,7 +47,7 @@ export default class ElmTop extends React.Component {
                             <div className={"elm_recommended_l"}>
                                 <h3>品质套餐</h3>
                                 <span>搭配齐全吃得好</span><br/>
-                                <a href="javascript:void(0)">立即抢购</a>
+                                <a >立即抢购</a>
                             </div>
                             <div className={"elm_recommended_r"}>
                                 <img src={require("../../loc_source/img/elm_recommend.webp")} alt="recomend"/>

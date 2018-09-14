@@ -16,7 +16,6 @@ class FormDateCustom extends React.Component {
         }
     }
 
-
     handleChange = (tel) => {
         console.log(this[tel].state.value)
         var obj = {};
@@ -27,23 +26,23 @@ class FormDateCustom extends React.Component {
             ...obj
         })
     }
-    sub = () => {
 
+    sub = (e) => {
+        e.preventDefault();
         if (this.state.tel.length < 3 || this.state.pass.length < 3) {
             alert("字段得大于3位");
-            return;
+            return false;
         } else {
-            this.props.loginIn(this.state.tel);
-            window.location.hash = "#/my/homelist"
+            setTimeout(() => {
+                this.props.loginIn(this.state.tel);
+            }, 0);
+            setTimeout(()=> window.location.hash = "#/my/homelist",100)
         }
     }
 
     render() {
-        // const { getFieldProps } = this.props.form;
         return (
             <div>
-
-
                 <List>
                     <InputItem
                         type="number"
@@ -70,8 +69,7 @@ class FormDateCustom extends React.Component {
                 </List>
 
                 <WhiteSpace/>
-                <Button type={"primary"} onClick={this.sub.bind(this)}> 登陆 </Button>
-
+                <Button type={"primary"} onClick={this.sub}> 登陆 </Button>
 
             </div>
         );

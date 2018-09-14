@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route,hashHistory ,IndexRoute,Redirect} from 'react-router'
+import { Router, Route,hashHistory ,IndexRoute} from 'react-router'
 
 import App from '../App';
 // import FlexExample from "../components/Test"
@@ -23,6 +23,7 @@ class CRouter extends React.Component{
            window.location.hash="#/my/homelist";
            return <HomeList/>;
         }
+        window.location.hash="#/my/login";
         return component;
     }
     render(){
@@ -37,7 +38,7 @@ class CRouter extends React.Component{
                     {/*<Redirect path={"my"} to={"/my/login"}/>*/}
                     <Route path={"my"}>
                         <Route path="login" component={()=>this.requireAuthentication(<BasicInputExampleWrapper/>)}/>
-                        <Route path={"homelist"} component={HomeList}/>
+                        <Route path={"homelist"} component={()=>this.requireAuthentication(<BasicInputExampleWrapper/>)}/>
                         <Route path={"setting"} component={Setting}/>
                         <Route path={"adminSetting"} component={AdminSetting}/>
                         <Route path={"wallet"} component={WalletIndex}/>
@@ -51,9 +52,6 @@ class CRouter extends React.Component{
         );
     }
 }
-
-
-
 
 export default CRouter;
 

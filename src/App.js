@@ -43,5 +43,4 @@ const mapDispatchToProps = dispatch => ({
     dispatchRouter: r => dispatch({type: "ROUTES_CHANGE", routes: r}),
 });
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(App);

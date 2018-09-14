@@ -25,6 +25,6 @@ export default function send(url,postData,successCallback,errCallback){
         },Math.random()*100)
     })
     promise.then(function(data){
-        successCallback(data)
+        successCallback(data[0])
     })
 }
