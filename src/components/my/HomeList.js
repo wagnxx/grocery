@@ -35,7 +35,16 @@ const ListItem = ({thumb, tit, wsps}) => {
                       arrow="horizontal"
                       onClick={() => {
                           // showToast()
-                          window.location.hash = "#/my/setting"
+                          let tz_url;
+                          if(thumb.indexOf("wx_qianbao.png")!==-1){
+
+                              tz_url="#/my/wallet"
+                          }else {
+
+                              tz_url= "#/my/setting"
+                          }
+                          window.location.hash = tz_url
+                          // console.log(this,tz_url)
                       }}
                 >
                     {tit}</Item>

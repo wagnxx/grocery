@@ -13,6 +13,7 @@ import AdminSetting from "../components/my/AdminSetting"
 
 import WalletIndex from "../pages/wallet/WalletIndex"
 import Result from "../components/result/Result"
+import NotFound from "../components/NotFound"
 
 
 class CRouter extends React.Component{
@@ -44,7 +45,7 @@ class CRouter extends React.Component{
                         <Route path={"wallet"} component={WalletIndex}/>
                     </Route>
                     <Route path="result" component={Result} />
-
+                    <Route path="*" component={NotFound} />
 
                 </Route>
 

@@ -4,16 +4,17 @@
 import React from 'react';
 import {Flex, WhiteSpace, WingBlank} from 'antd-mobile';
 import ElmTopItem from "./ElmTopItem"
+const BASE_URL="http://wagnxx.net.cn/react/images/img_wx/"
 
-import ms from "../../loc_source/img/elm_meishi.webp"
-import wc from "../../loc_source/img/elm_wancan.webp";
-import cs from "../../loc_source/img/elm_bianlichaoshi.webp";
-import sg from "../../loc_source/img/elm_shuiguo.webp";
-import yljk from "../../loc_source/img/elm_yiyaojiankang.webp";
-import lmxh from "../../loc_source/img/elm_langmanxianhua.webp";
-import ccsx from "../../loc_source/img/elm_chufangshengxian.webp";
-import dfxc from "../../loc_source/img/elm_difangxiaochi.webp";
-import mlt from "../../loc_source/img/elm_malatang.webp";
+const ms =BASE_URL+"elm_meishi.webp"
+const wc =BASE_URL+"elm_wancan.webp";
+const cs =BASE_URL+"elm_bianlichaoshi.webp";
+const sg =BASE_URL+"elm_shuiguo.webp";
+const yljk =BASE_URL+ "elm_yiyaojiankang.webp";
+const lmxh =BASE_URL+ "elm_langmanxianhua.webp";
+const ccsx =BASE_URL+ "elm_chufangshengxian.webp";
+const dfxc =BASE_URL+ "elm_difangxiaochi.webp";
+const mlt =BASE_URL+ "elm_malatang.webp";
 
 const itemLists = [
     {uri: ms, tit: "美食"},
