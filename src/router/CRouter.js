@@ -1,8 +1,25 @@
 import React from 'react';
 import { Router, Route,hashHistory ,IndexRoute} from 'react-router'
+//
+// import AsyncComponent from "../utils/AsyncLoad/AsyncComponent"
+//
+// import App from '../App';
+//
+// const ElmPage = AsyncComponent (()=>import("../components/elm/ElmPage"));
+// const KoubeiCustom = AsyncComponent (()=>import("../components/koubei/KoubeiCustom"));
+// const FriendCustom = AsyncComponent (()=>import("../components/friend/FriendCustom"));
+//
+// const BasicInputExampleWrapper  = AsyncComponent (()=>import( "../components/my/FormDateCustom"));
+// const HomeList  = AsyncComponent (()=>import( "../components/my/HomeList"));
+// const Setting  = AsyncComponent (()=>import( "../components/my/Setting"));
+// const AdminSetting  = AsyncComponent (()=>import( "../components/my/AdminSetting"));
+//
+// const WalletIndex  = AsyncComponent (()=>import( "../pages/wallet/WalletIndex"));
+// const Result  = AsyncComponent (()=>import( "../components/result/Result"));
+// const NotFound  = AsyncComponent (()=>import( "../components/NotFound"));
 
 import App from '../App';
-// import FlexExample from "../components/Test"
+
 import ElmPage from "../components/elm/ElmPage"
 import KoubeiCustom from "../components/koubei/KoubeiCustom"
 import FriendCustom from "../components/friend/FriendCustom"

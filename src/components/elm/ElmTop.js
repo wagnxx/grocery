@@ -16,6 +16,9 @@ const ccsx =BASE_URL+ "elm_chufangshengxian.webp";
 const dfxc =BASE_URL+ "elm_difangxiaochi.webp";
 const mlt =BASE_URL+ "elm_malatang.webp";
 
+const elm_recommend =BASE_URL+ "elm_recommend.webp";
+const elm_barnner =BASE_URL+ "elm_barnner.webp";
+
 const itemLists = [
     {uri: ms, tit: "美食"},
     {uri: wc, tit: "晚餐"},
@@ -51,12 +54,12 @@ export default class ElmTop extends React.Component {
                                 <a >立即抢购</a>
                             </div>
                             <div className={"elm_recommended_r"}>
-                                <img src={require("../../loc_source/img/elm_recommend.webp")} alt="recomend"/>
+                                <img src={elm_recommend} alt="recomend"/>
                             </div>
                         </Flex>
                     </div>
                     <WhiteSpace size={"sm"}/>
-                    <div className={"elm_barnner"}><img src={require("../../loc_source/img/elm_barnner.webp")} alt=""/>
+                    <div className={"elm_barnner"}><img src={elm_barnner} alt=""/>
                     </div>
                 </WingBlank>
                 {/*推荐位*/}

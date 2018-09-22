@@ -4,10 +4,14 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {TabBar} from 'antd-mobile';
-import fx1 from "../../loc_source/img/footer_faxian.png";
-import fx2 from "../../loc_source/img/footer_faxianxuanzhong.png";
-import wo1 from "../../loc_source/img/footer_wode.png";
-import wo2 from "../../loc_source/img/footer_wodedangxuan.png";
+
+const BASE_URL="http://wagnxx.net.cn/react/images/img_wx/"
+
+
+const fx1 = BASE_URL+"footer_faxian.png";
+const fx2 = BASE_URL+"footer_faxianxuanzhong.png";
+const wo1 = BASE_URL+"footer_wode.png";
+const wo2 = BASE_URL+"footer_wodedangxuan.png";
 
 class FooterCustom extends React.Component {
     constructor(props) {
